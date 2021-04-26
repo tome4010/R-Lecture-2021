@@ -1,0 +1,79 @@
+---
+title: "Chapter03"
+author: "Hyunjung Song"
+date: '2021 04 22'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 연습문제
+
+
+```{r}
+# 1번
+x = c(1:100)
+x <- x[x%%3==0]
+x
+
+y = c(1:100)
+y <- y[y%%4==0]
+y
+```
+
+
+
+```{r}
+# 2번
+
+intersect(x,y)
+sum(intersect(x,y))
+```
+
+
+```{r}
+# 3번
+# New York City
+```
+
+
+```{r}
+# 4번
+# degrees F
+```
+
+
+```{r}
+# 5번
+max_wind<-max(airquality$Wind)
+wind.day<-airquality[airquality$Wind==max_wind, 5:6]
+wind.day
+date<-paste0('1973-',wind.day$Month,'-',wind.day$Day)
+date               # 문자열
+date_type <- as.Date(date)  # Date
+date_type
+```
+ 
+
+```{r}
+# 6번
+sum(is.na(airquality))
+```
+ 
+
+```{r}
+# 7번
+# Fiji
+```
+ 
+
+```{r}
+# 8번
+max(quakes$mag)
+quakes[quakes$mag==max(quakes$mag),]
+```
+ 
+ 
+ 

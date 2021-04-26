@@ -6,7 +6,3 @@
   - 파이썬 데이터 분석
   - 머신러닝/딥 러닝
   - 실무 프로젝트
-
-  ### 관련사이트
-  - 김철기 교수님  https://github.com/ckiekim
-  - 네이버 카페     https://cafe.naver.com/bigdata21daejon
