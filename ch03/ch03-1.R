@@ -1,10 +1,10 @@
 getwd()
-setwd('\Workspace/R')
+setwd('/Workspace/R')
 
 #변수
 x <- 1
 y <- 2
-z <-  x+y
+z <- x+y
 z
 
 # Swapping
@@ -85,3 +85,4 @@ a || b   # 첫번째 엘리먼트의 논리합
 a & b
 a && b
 2^-3-5**1/2>2        #2^(-3) - 5**(1/2) > 2 으로 쓸 것
+

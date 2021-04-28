@@ -43,7 +43,7 @@ head(airquality)
 str(airquality)
 sum(airquality$Ozone)
 
-head(na.omit(airquality))    #NA가 포함된 행 전체를 제거
+head(na.omit(airquality))    # NA가 포함된 행 전체를 제거
 
 # 병합(merge)
 patients
@@ -65,7 +65,7 @@ patients1
 # merge
 # Inner join
 merge(patients1, patients2)     # x, y
-# Lefr outer join
+# Left outer join
 merge(patients1, patients2, all.x=T)
 # Right outer join
 merge(patients1, patients2, all.y=T)

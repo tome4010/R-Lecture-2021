@@ -26,7 +26,7 @@ plot(iris)
 plot(iris$Petal.Length,iris$Petal.Width, col=iris$Species, pch=18)
 
 # tips.cs download
-tips = read.csv('https://githubusercontent.com/mwaskom/seaborn-data/seaborn-data/master/tips.csv')
+tips = read.csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv')
 head(tips)
 str(tips)
 
@@ -36,6 +36,7 @@ summary(tips)
 # ggplot2 그림 그려보기
 tips %>% ggplot(aes(size))+geom_histogram()               #히스토그램
 tips %>% ggplot(aes(total_bill, tip))+geom_point()        #산점도
-tips %>% ggplot(aes(total_bill, tip))+geom_point(aes((col=day))
-tips %>% ggplot(aes(total_bill, tip))+geom_point(aes((col=day, pch=sex, size=3))
-tips %>% ggplot(aes(total_bill, tip))+geom_point(aes((col=day, pch=times, size=3))
+tips %>% ggplot(aes(total_bill, tip))+geom_point(aes(col=day))
+tips %>% ggplot(aes(total_bill, tip))+geom_point(aes(col=day,pch=sex),size=3)
+tips %>% ggplot(aes(total_bill, tip))+geom_point(aes(col=day,pch=time),size=3)
+                                          

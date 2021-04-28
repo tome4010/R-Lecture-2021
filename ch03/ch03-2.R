@@ -59,3 +59,4 @@ setdiff(x,y)       # 차집합
 setdiff(y,x)
 setequal(x,y)     # F
 setequal(x,z)     # T
+
