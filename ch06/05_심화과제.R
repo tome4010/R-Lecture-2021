@@ -1,74 +1,77 @@
+# 시각화 심화 연습문제
 library(dplyr)
 library(ggplot2)
 
 # 1
 head(mpg)
-ggplot(mpg, aes(cty,hwy,col=class)) +
+ggplot(mpg, aes(cty, hwy, col=class)) +
     geom_point(position='jitter')
 
 # 2
 head(midwest)
+options(scipen = 10)   # 지수 표기를 일반 표기로 변환
 mw <- midwest %>%
-      filter(poptotal<=500000 & popasian<=10000)
-options(scipen =10)    #w 지수 표기를 일반 표기로 변환
+    filter(poptotal <= 500000 & popasian <= 10000)
 ggplot(mw, aes(x=poptotal, y=popasian, col=state)) +
     geom_point() +
     xlim(0,500000) + ylim(0,10000)
 
-# 연결해서 한번에 실행되도록
+# 연결해서 한번에 실행되도록, 스케일 변화
 midwest %>%
-    filter(poptotal <= 500000 & popasian <=1 0000) %>%
-    ggplot(mw(aes(x=poptotal, y=popasian, col=state)) +
+    filter(poptotal <= 500000 & popasian <= 10000) %>% 
+    ggplot(aes(x=poptotal, y=popasian, col=state)) +
     geom_point() +
     scale_x_log10() + scale_y_log10()
-    
 
 # 3
 mpg %>%
-    filter(class =='suv') %>%
+    filter(class == 'suv') %>%
     group_by(manufacturer) %>%
     summarise(mean_cty = mean(cty)) %>%
     arrange(desc(mean_cty)) %>%
-    head(5) %>%
-    ggplot(aes(x=reorder(manufacturer, -mean_cty), y=mean_cty, fill=manufacturer) +
-    geom_col() +    # geom_bar(stat='identity')
+    head(5) %>% 
+    ggplot(aes(x=reorder(manufacturer, -mean_cty), y=mean_cty,
+               fill=manufacturer)) +
+    geom_col() +        # geom_bar(stat='identity')
     labs(x='Manufacturer', y='average cty')
 
 # 4
 mpg %>%
     group_by(class) %>%
-    summarise(count =n()) %>%
+    summarise(count = n()) %>% 
     ggplot(aes(x=reorder(class, -count), y=count, fill=class)) +
-    geom_col +
+    geom_col() +
     labs(x='Class')
 
 # 5
 head(economics)
-ggplot(economics, aes(date, psavert)) +
-    geom_line
+ggplot(economics) + 
+    geom_line(aes(date, psavert, col=psavert))
 
 # 6
 mpg %>%
-    filter(class %in% c("compact", "subcompact", "suv")) %>%
-    ggplot(aes(x=class, y=cty, col=class)) + 
+    filter(class %in% c("compact", "subcompact", "suv")) %>% 
+    ggplot(aes(class, cty, col=class)) +
     geom_boxplot()
 
-# 7-1
+# 7
 head(diamonds)
 str(diamonds)
-diamonds %>%
-    group_by(cut) %>%
-    summarise(count=n()) %>%
+
+# 7-1
+diamonds %>% 
+    group_by(cut) %>% 
+    summarise(count=n()) %>% 
     ggplot(aes(cut, count, fill=cut)) +
     geom_col()
 # 또는
-ggplot(diamonds, aes(x=cut, fill=cut)) +
+ggplot(diamonds, aes(cut, fill=cut)) +
     geom_bar()
 
 # 7-2
 diamonds %>%
     group_by(cut) %>%
-    summarise(mean_price = mean(price)) %>%
+    summarise(mean_price = mean(price)) %>% 
     ggplot(aes(cut, mean_price, fill=cut)) +
     geom_col()
 
